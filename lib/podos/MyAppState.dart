@@ -105,13 +105,13 @@ class MyAppState extends State<MyApp> {
 
   void onStartMeasureChanged(String value) {
     setState(() {
-      _convertedMeasure = value;
+      _startMeasure = value;
     });
   }
 
   void onConvertedMeasureChanged(String value) {
     setState(() {
-      _startMeasure = value;
+      _convertedMeasure = value;
     });
   }
 
@@ -128,10 +128,14 @@ class MyAppState extends State<MyApp> {
     );
 
     setState(() {
+
+      _result = result;
+
       if (result == 0) {
         _resultMessage = 'This conversion cannot be performed';
       } else {
-        _resultMessage = '${_numberFrom.toString()} $_startMeasure are ${_result.toString()} $_convertedMeasure';
+        _resultMessage =
+        '${_numberFrom.toString()} $_startMeasure are ${_result.toString()} $_convertedMeasure';
       }
     });
   }
